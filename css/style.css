@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.container-todolist{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    
+    
+}
+
+.task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    
+}
+.form{
+    height: 150px;
+    width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    -webkit-box-shadow: 10px 8px 19px -12px rgba(199,199,199,1);
+    -moz-box-shadow: 10px 8px 19px -12px rgba(199,199,199,1);
+    box-shadow: 10px 8px 19px -12px rgba(199,199,199,1);    
+    
+    form{
+        padding: 30px;
+        .input{
+            border: 1px solid #dcdcdc;
+            margin: 10px;
+            height: 35px;
+            width: 200px;
+            padding-left:5px;
+            text-align: left;
+            border-radius: 10px;
+        }
+        .btn{
+            background-color: black;
+            color: white;
+            height: 35px;
+            padding: 0 10px 0 10px;
+            border-radius: 100vmax;
+            
+        }
+
+    }
+}
