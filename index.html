@@ -6,7 +6,7 @@
     <title>Tareas</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
-    <script src="./js/app.js"></script>
+
 </head>
 <body>
 
@@ -21,17 +21,49 @@
 
             <div class="form">
 
-                <h3>Lista de Tareas</h3>
-                <form action="" >
-                    <input id="input-task" class="input" type="text" placeholder="Añadir nueva tarea...">
-                    <input  onclick="addLocal()" class="btn" type="button" value="Añadir" >
+                <h3>Crear Tareas</h3>
+                <form id="formulario" action="" >
+                    <input  class="input" type="text" placeholder="Tarea" required>
+                    <input  class="input" type="date" placeholder="Fecha" required>
+                    <input  class="input" type="time" placeholder="Hora" required>
+                    <input  class="input" type="text" placeholder="Descripcion" required>
+                    
                 </form>
+
+                <input  class="btn" type="submit" value="Añadir" >
+            </div>
+
+            <div class="list-task">
+                
             </div>
         </div>
+
+        <div class="listar-tareas">
+            <h3 class="titulo">Lista de Tareas</h3>
+            <div class="tabla">
+                <div class="tarea">
+                    <p><strong>Comer</strong> - tengo que correr</p>
+                    <p>12/03/23 - 7:00pm</p>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+                <div class="tarea">
+                    <p><strong>Comer</strong> - tengo que correr</p>
+                    <p>12/03/23 - 7:00pm</p>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+                <div class="tarea">
+                    <p><strong>Comer</strong> - tengo que correr</p>
+                    <p>12/03/23 - 7:00pm</p>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+                <!--seccion de listas-->
+            </div>
+        </div>
+        
 
     </section>
 
 </main>
-
+<script src="./js/app.js"></script>
 </body>
 </html>
