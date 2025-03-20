@@ -97,9 +97,12 @@ body{
     gap: 8px;
     width: 100%;
 }
+.tarea:hover{
+    background-color: gainsboro;
+}
 
-.btn-delete {
-    background-color: black;
+.btns .btn-borrar { 
+    background-color: rgb(121, 23, 23);
     color: white;
     border: none;
     padding: 10px;
@@ -107,8 +110,28 @@ body{
     cursor: pointer;
     font-weight: bold;
     width: 80px;
+
+    
 }
 
-.btn-delete:hover {
-    background-color: rgb(40, 40, 40);
+.btns .btn-actualizar { 
+    background-color:  black;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 100vmax;
+    cursor: pointer;
+    font-weight: bold;
+    width: 80px;
+
+    
 }
+
+.btn-borrar:hover {
+    background-color:red;
+}
+
+.btn-actualizar:hover {
+    background-color:rgb(37, 37, 37);
+}
+

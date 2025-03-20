@@ -23,14 +23,15 @@
 
                 <h3>Crear Tareas</h3>
                 <form id="formulario" action="" >
-                    <input  class="input" type="text" placeholder="Tarea" required>
-                    <input  class="input" type="date" placeholder="Fecha" required>
-                    <input  class="input" type="time" placeholder="Hora" required>
-                    <input  class="input" type="text" placeholder="Descripcion" required>
+                    <input id="tarea" class="input" type="text" placeholder="Tarea" required>
+                    <input id="fecha" class="input" type="date" placeholder="Fecha" required>
+                    <input id="hora" class="input" type="time" placeholder="Hora" required>
+                    <input id="descripcion" class="input" type="text" placeholder="Descripcion" required>
                     
                 </form>
 
-                <input  class="btn" type="submit" value="Añadir" >
+                <input onclick="GuardarTarea()"  class="btn" type="submit" value="Añadir" >
+                <!-- <input onclick="CargarTareas()"  class="btn" type="submit" value="Cargar" > -->
             </div>
 
             <div class="list-task">
@@ -40,23 +41,33 @@
 
         <div class="listar-tareas">
             <h3 class="titulo">Lista de Tareas</h3>
-            <div class="tabla">
-                <div class="tarea">
-                    <p><strong>Comer</strong> - tengo que correr</p>
+            <div  id="listar" class="tabla">
+            
+                <!-- <div class="tarea">
+                    <p><strong>Correr</strong> - tengo que corrasdsader</p>
                     <p>12/03/23 - 7:00pm</p>
-                    <button class="btn-delete">Eliminar</button>
+                    <div class="btns">
+                        <button class="btn-actualizar">Actualizar</button>
+                        <button class="btn-borrar">Eliminar</button>
+                    </div>
                 </div>
                 <div class="tarea">
-                    <p><strong>Comer</strong> - tengo que correr</p>
+                    <p><strong>Correr</strong> - tengo que corrasdsader</p>
                     <p>12/03/23 - 7:00pm</p>
-                    <button class="btn-delete">Eliminar</button>
+                    <div class="btns">
+                        <button class="btn-actualizar">Actualizar</button>
+                        <button class="btn-borrar">Eliminar</button>
+                    </div>
                 </div>
                 <div class="tarea">
-                    <p><strong>Comer</strong> - tengo que correr</p>
+                    <p><strong>Correr</strong> - tengo que corrasdsader</p>
                     <p>12/03/23 - 7:00pm</p>
-                    <button class="btn-delete">Eliminar</button>
-                </div>
-                <!--seccion de listas-->
+                    <div class="btns">
+                        <button class="btn-actualizar">Actualizar</button>
+                        <button class="btn-borrar">Eliminar</button>
+                    </div>
+                </div> -->
+                
             </div>
         </div>
         
