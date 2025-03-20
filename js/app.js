@@ -23,4 +23,38 @@ function GuardarTarea() {
     CargarTareas()
 }
 
+function CargarTareas() {
+    let lista = Number(localStorage.getItem("contador")) || 1;
+    let divConTareas = document.getElementById("listar")
 
+    divConTareas.innerHTML = ""
+
+    for (let i = 1; i < lista; i++) {
+        const llave = `llave_${i}`;
+
+        const tarea = localStorage.getItem(`${llave}_tarea`);
+        
+
+        const fecha = localStorage.getItem(`${llave}_fecha`);
+        const hora = localStorage.getItem(`${llave}_hora`);
+        const descripcion = localStorage.getItem(`${llave}_descripcion`);
+
+
+    let tareasLista =  `
+                    <div class="tarea">
+                    <p><strong>${tarea}</strong> - ${descripcion}</p>
+                    <p>${fecha} - ${hora}</p>
+                    <div class="btns">
+                        <button class="btn-actualizar">Actualizar</button>
+                        <button class="btn-borrar">Eliminar</button>
+                    </div>`
+
+    divConTareas.innerHTML += tareasLista
+
+    }
+    
+
+}
+window.onload = function () {
+    CargarTareas()
+}
