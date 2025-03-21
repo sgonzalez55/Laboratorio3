@@ -9,18 +9,23 @@ function GuardarTarea() {
     let numeroTarea = Number(localStorage.getItem("contador")) || 1; 
     const llave = `llave_${numeroTarea}`;
 
+    if (tarea === '' || fecha === '' ||hora==='' ||descripcion ===''){
+        alert("Debes rellenar todos los campos")
+    }else{
+        localStorage.setItem(`${llave}_tarea`, tarea);
+        localStorage.setItem(`${llave}_fecha`, fecha);
+        localStorage.setItem(`${llave}_hora`, hora);
+        localStorage.setItem(`${llave}_descripcion`, descripcion);
     
-    localStorage.setItem(`${llave}_tarea`, tarea);
-    localStorage.setItem(`${llave}_fecha`, fecha);
-    localStorage.setItem(`${llave}_hora`, hora);
-    localStorage.setItem(`${llave}_descripcion`, descripcion);
-
+        
+        localStorage.setItem("contador", numeroTarea + 1);
     
-    localStorage.setItem("contador", numeroTarea + 1);
+        document.getElementById("formulario").reset();
+    
+        CargarTareas()
+    }
+    
 
-    document.getElementById("formulario").reset();
-
-    CargarTareas()
 }
 
 function CargarTareas() {
@@ -39,7 +44,11 @@ function CargarTareas() {
         const descripcion = localStorage.getItem(`${llave}_descripcion`);
 
         if (!tarea || !fecha || !hora || !descripcion) {
+
+            continue; // aqui con esto no carga los valores nullosgit status
+
             continue; 
+
         }
 
     let tareasLista =  `
@@ -61,4 +70,24 @@ function CargarTareas() {
 }
 window.onload = function () {
     CargarTareas()
+}
+
+
+function EliminarLista(llave) {
+    
+    localStorage.removeItem(`${llave}_tarea`);
+    localStorage.removeItem(`${llave}_fecha`);
+    localStorage.removeItem(`${llave}_hora`);
+    localStorage.removeItem(`${llave}_descripcion`);
+
+
+
+    let tareaDiv = document.getElementById(llave);
+    if (tareaDiv) {
+        tareaDiv.remove(); 
+    }
+
+
+    CargarTareas();
+
 }
