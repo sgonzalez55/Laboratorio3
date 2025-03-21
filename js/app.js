@@ -1,4 +1,4 @@
-//Funcion para agregar al localstorage
+//iniciacion  del todas las funciones de nuestra aplicacion web
 let tareaAeditar = null;
 function GuardarTarea() {
     const tarea = document.getElementById("tarea").value;
@@ -44,7 +44,7 @@ function CargarTareas() {
         const descripcion = localStorage.getItem(`${llave}_descripcion`);
 
         if (!tarea || !fecha || !hora || !descripcion) {
-            continue; // aqui con esto no carga los valores nullosgit status
+            continue;
         }
 
     let tareasLista =  `
@@ -89,7 +89,7 @@ function EliminarLista(llave) {
 }
 
 function Actualizar(llave) {
-    //En esta funcion llamamos los campos a modificar insertados de la tarea
+    
 
     const tarea = localStorage.getItem(`${llave}_tarea`);
     const fecha = localStorage.getItem(`${llave}_fecha`);
@@ -102,7 +102,7 @@ function Actualizar(llave) {
     document.getElementById("descripcion").value = descripcion;
 
 
-    tareaAEditar = llave; //se guarda la llave del campo a modificar
+    tareaAEditar = llave; 
 }
 
 function Modificar(llave){
@@ -117,8 +117,6 @@ function Modificar(llave){
     const hora = document.getElementById("hora").value;
     const descripcion = document.getElementById("descripcion").value;
 
-
-     // Actualizar en localStorage con los cambios
     localStorage.setItem(`${tareaAEditar}_tarea`, tarea);
     localStorage.setItem(`${tareaAEditar}_fecha`, fecha);
     localStorage.setItem(`${tareaAEditar}_hora`, hora);
