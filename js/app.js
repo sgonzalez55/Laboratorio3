@@ -38,24 +38,30 @@ function CargarTareas() {
         const llave = `llave_${i}`;
 
         const tarea = localStorage.getItem(`${llave}_tarea`);
+        
         const fecha = localStorage.getItem(`${llave}_fecha`);
         const hora = localStorage.getItem(`${llave}_hora`);
         const descripcion = localStorage.getItem(`${llave}_descripcion`);
 
+        if (!tarea || !fecha || !hora || !descripcion) {
+            continue; // aqui con esto no carga los valores nullosgit status
+        }
 
     let tareasLista =  `
                     <div class="tarea">
                     <p><strong>${tarea}</strong> - ${descripcion}</p>
                     <p>${fecha} - ${hora}</p>
                     <div class="btns">
-                        <button class="btn-actualizar" onclick="ActualizarTarea()">Actualizar</button>
-                        <button class="btn-borrar" onclick="EliminarTarea(${llave})">Eliminar</button>
+
+                        <button class="btn-actualizar" onclick="Actualizar('${llave}')">Actualizar</button>
+                        
+                        <button class="btn-borrar" onclick="EliminarLista('${llave}')">Eliminar</button>
                     </div>`
 
     divConTareas.innerHTML += tareasLista
 
     }
-    
+
 
 }
 window.onload = function () {
