@@ -9,18 +9,23 @@ function GuardarTarea() {
     let numeroTarea = Number(localStorage.getItem("contador")) || 1; 
     const llave = `llave_${numeroTarea}`;
 
+    if (tarea === '' || fecha === '' ||hora==='' ||descripcion ===''){
+        alert("Debes rellenar todos los campos")
+    }else{
+        localStorage.setItem(`${llave}_tarea`, tarea);
+        localStorage.setItem(`${llave}_fecha`, fecha);
+        localStorage.setItem(`${llave}_hora`, hora);
+        localStorage.setItem(`${llave}_descripcion`, descripcion);
     
-    localStorage.setItem(`${llave}_tarea`, tarea);
-    localStorage.setItem(`${llave}_fecha`, fecha);
-    localStorage.setItem(`${llave}_hora`, hora);
-    localStorage.setItem(`${llave}_descripcion`, descripcion);
-
+        
+        localStorage.setItem("contador", numeroTarea + 1);
     
-    localStorage.setItem("contador", numeroTarea + 1);
+        document.getElementById("formulario").reset();
+    
+        CargarTareas()
+    }
+    
 
-    document.getElementById("formulario").reset();
-
-    CargarTareas()
 }
 
 function CargarTareas() {
@@ -33,8 +38,6 @@ function CargarTareas() {
         const llave = `llave_${i}`;
 
         const tarea = localStorage.getItem(`${llave}_tarea`);
-        
-
         const fecha = localStorage.getItem(`${llave}_fecha`);
         const hora = localStorage.getItem(`${llave}_hora`);
         const descripcion = localStorage.getItem(`${llave}_descripcion`);
@@ -45,8 +48,8 @@ function CargarTareas() {
                     <p><strong>${tarea}</strong> - ${descripcion}</p>
                     <p>${fecha} - ${hora}</p>
                     <div class="btns">
-                        <button class="btn-actualizar">Actualizar</button>
-                        <button class="btn-borrar">Eliminar</button>
+                        <button class="btn-actualizar" onclick="ActualizarTarea()">Actualizar</button>
+                        <button class="btn-borrar" onclick="EliminarTarea(${llave})">Eliminar</button>
                     </div>`
 
     divConTareas.innerHTML += tareasLista
@@ -57,4 +60,24 @@ function CargarTareas() {
 }
 window.onload = function () {
     CargarTareas()
+}
+
+
+function EliminarLista(llave) {
+    
+    localStorage.removeItem(`${llave}_tarea`);
+    localStorage.removeItem(`${llave}_fecha`);
+    localStorage.removeItem(`${llave}_hora`);
+    localStorage.removeItem(`${llave}_descripcion`);
+
+
+
+    let tareaDiv = document.getElementById(llave);
+    if (tareaDiv) {
+        tareaDiv.remove(); 
+    }
+
+
+    CargarTareas(); //actualizo tarea
+
 }
