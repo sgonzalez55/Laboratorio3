@@ -44,7 +44,11 @@ function CargarTareas() {
         const descripcion = localStorage.getItem(`${llave}_descripcion`);
 
         if (!tarea || !fecha || !hora || !descripcion) {
+
             continue; // aqui con esto no carga los valores nullosgit status
+
+            continue; 
+
         }
 
     let tareasLista =  `
