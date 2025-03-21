@@ -84,6 +84,6 @@ function EliminarLista(llave) {
     }
 
 
-    CargarTareas(); //actualizo tarea
+    CargarTareas();
 
 }
