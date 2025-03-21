@@ -34,25 +34,29 @@ function CargarTareas() {
 
         const tarea = localStorage.getItem(`${llave}_tarea`);
         
-
         const fecha = localStorage.getItem(`${llave}_fecha`);
         const hora = localStorage.getItem(`${llave}_hora`);
         const descripcion = localStorage.getItem(`${llave}_descripcion`);
 
+        if (!tarea || !fecha || !hora || !descripcion) {
+            continue; 
+        }
 
     let tareasLista =  `
                     <div class="tarea">
                     <p><strong>${tarea}</strong> - ${descripcion}</p>
                     <p>${fecha} - ${hora}</p>
                     <div class="btns">
-                        <button class="btn-actualizar">Actualizar</button>
-                        <button class="btn-borrar">Eliminar</button>
+
+                        <button class="btn-actualizar" onclick="Actualizar('${llave}')">Actualizar</button>
+                        
+                        <button class="btn-borrar" onclick="EliminarLista('${llave}')">Eliminar</button>
                     </div>`
 
     divConTareas.innerHTML += tareasLista
 
     }
-    
+
 
 }
 window.onload = function () {
